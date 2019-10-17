@@ -3,113 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgudin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lgudin <lgudin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 20:59:47 by lgudin            #+#    #+#             */
-/*   Updated: 2018/12/05 03:05:29 by lgudin           ###   ########.fr       */
+/*   Updated: 2019/10/02 20:37:19 by lgudin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	compte_mots(char *str, char c)
+static size_t	nb_words(char const *s, char c)
 {
-	int i;
-	int compte_mot;
+	size_t	i;
+	size_t	k;
 
 	i = 0;
-	compte_mot = 0;
-	while (str[i])
-	{
-		while (str[i] == c && str[i])
-			i++;
-		if (str[i] != c && str[i])
+	k = 0;
+	if (s)
+		while (s[i])
 		{
-			compte_mot++;
-			while (str[i] != c && str[i])
+			while (s[i] == c && s[i])
+				i++;
+			if (s[i] != c && s[i])
+				k++;
+			while (s[i] != c && s[i])
 				i++;
 		}
-	}
-	return (compte_mot);
+	return (k);
 }
 
-static int	longest_word_in(char *str, char c)
+static size_t	ft_word_len(char const *s, char c)
 {
-	int i;
-	int current_size;
-	int longest_size;
+	size_t	len;
 
-	i = 0;
-	current_size = 0;
-	longest_size = 0;
-	while (str[i])
-	{
-		while (str[i] == c && str[i])
-			i++;
-		while (str[i] != c && str[i])
-		{
-			current_size++;
-			i++;
-		}
-		if (current_size > longest_size)
-			longest_size = current_size;
-		current_size = 0;
-	}
-	return (longest_size);
+	len = 0;
+	while (s[len] != c && s[len])
+		len++;
+	return (len);
 }
 
-static char	**str_to_strbis(char *s, char **strbis, int nb, char c)
+char			**ft_strsplit(char const *s, char c)
 {
-	int i;
-	int y;
-	int z;
-	int len;
+	char	**str;
+	size_t	nbw;
+	size_t	k;
+	size_t	prev;
+	size_t	len;
 
-	len = ft_strlen(s);
-	i = 0;
-	y = 0;
-	z = 0;
-	while (y < nb)
+	str = NULL;
+	nbw = nb_words(s, c);
+	str = (char **)ft_memalloc(sizeof(char *) * (nbw + 1));
+	k = 0;
+	prev = 0;
+	if (s)
 	{
-		while (s[i] == c && s[i])
-			i++;
-		while (s[i] != c && i < len)
-		{
-			strbis[y][z] = s[i];
-			i++;
-			z++;
-		}
-		strbis[y][z] = '\0';
-		y++;
-		z = 0;
-		i++;
+		if (str)
+			while (k < nbw)
+			{
+				while (s[prev] == c && s[prev])
+					prev++;
+				len = ft_word_len(s + prev, c);
+				str[k++] = ft_strsub(s, prev, len);
+				prev += len;
+			}
+		str[nbw] = 0;
 	}
-	return (strbis);
-}
-
-char		**ft_strsplit(const char *str, char c)
-{
-	int		nbr_mots;
-	int		i;
-	char	**str_split;
-	int		longest;
-
-	if (!((char*)str))
-		return (0);
-	longest = longest_word_in((char*)str, c);
-	i = 0;
-	nbr_mots = 0;
-	nbr_mots = compte_mots((char*)str, c);
-	if (!(str_split = (char**)ft_memalloc(sizeof(char*) * nbr_mots + 1)))
-		return (NULL);
-	while (i < nbr_mots)
-	{
-		if (!(str_split[i] = (char*)ft_memalloc(sizeof(char) * longest)))
-			return (NULL);
-		i++;
-	}
-	str_split[nbr_mots] = 0;
-	if (str_split == 0)
-		return (0);
-	return (str_to_strbis((char*)str, str_split, nbr_mots, c));
+	return (str);
 }

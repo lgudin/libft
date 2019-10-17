@@ -14,18 +14,14 @@
 
 void	*ft_memalloc(size_t size)
 {
-	size_t			i;
-	void			*space;
-	unsigned char	*tmp;
+	void	*ptr;
 
-	i = 0;
-	if (!(space = (void*)malloc(sizeof(void) * (size))))
-		return (NULL);
-	tmp = space;
-	while (i < size)
+	ptr = NULL;
+	if (size > 0)
 	{
-		tmp[i] = 0;
-		i++;
+		ptr = (void *)malloc(size);
+		if (ptr)
+			ft_bzero(ptr, size);
 	}
-	return (space);
+	return (ptr);
 }
