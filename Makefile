@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgudin <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: lgudin <lgudin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 23:00:49 by lgudin            #+#    #+#              #
-#    Updated: 2019/05/24 14:29:54 by lgudin           ###   ########.fr        #
+#    Updated: 2019/10/17 11:15:53 by lgudin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,3 +37,5 @@ re: fclean	all
 
 america_great_again:
 	@echo "|* * * * * * * * * * OOOOOOOOOOOOOOOOOOOOOOOOO| \n| * * * * * * * * *  :::::::::::::::::::::::::| \n|* * * * * * * * * * OOOOOOOOOOOOOOOOOOOOOOOOO| \n| * * * * * * * * *  :::::::::::::::::::::::::| \n|* * * * * * * * * * OOOOOOOOOOOOOOOOOOOOOOOOO| \n| * * * * * * * * *  ::::::::::::::::::::;::::| \n|* * * * * * * * * * OOOOOOOOOOOOOOOOOOOOOOOOO| \n|:::::::::::::::::::::::::::::::::::::::::::::| \n|OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO| \n|:::::::::::::::::::::::::::::::::::::::::::::| \n|OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO| \n|:::::::::::::::::::::::::::::::::::::::::::::| \n|OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO| \n "
+
+.PHONY: all clean fclean re

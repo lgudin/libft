@@ -6,7 +6,7 @@
 /*   By: lgudin <lgudin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 21:30:31 by lgudin            #+#    #+#             */
-/*   Updated: 2019/10/03 11:30:43 by lgudin           ###   ########.fr       */
+/*   Updated: 2019/10/17 14:34:15 by lgudin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ typedef struct	s_list
 
 int				ft_sqrt(int nb);
 int				ft_next_sqrt(int nb);
-int 	   	    get_next_line(const int fd, char **line);
+int				get_next_line(const int	fd, char **line);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
 size_t			ft_strlen(const	char *str);
-char 			*ft_strcat(char *s1, const char *s2);
+char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strncat(char *s1, const char *s2, size_t n);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 void			*ft_memcpy(void *dst, const void *src, size_t n);

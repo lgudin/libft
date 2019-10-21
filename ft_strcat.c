@@ -6,13 +6,13 @@
 /*   By: lgudin <lgudin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 05:13:18 by lgudin            #+#    #+#             */
-/*   Updated: 2019/10/03 11:30:53 by lgudin           ###   ########.fr       */
+/*   Updated: 2019/10/17 14:32:56 by lgudin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strcat(char *s1, const char *s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	int		i;
 	size_t	j;
